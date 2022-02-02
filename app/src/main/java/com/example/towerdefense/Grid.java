@@ -1,8 +1,8 @@
 package com.example.towerdefense;
 
 public class Grid {
-    private Area[][] grid;
-    private int gridHeight, gridWidth;
+    private final Area[][] grid;
+    private final int gridHeight, gridWidth;
 
     public Grid(){
         this.gridHeight = 11;
@@ -52,11 +52,20 @@ public class Grid {
         return getArea(numLigne, numCol).hasTower();
     }
 
+    public Area endOfMaze(){
+        return getArea(10,5);
+    }
 
+    public Area startOfMaze(){
+        return getArea(0, 2);
+    }
 
+    public boolean isEndOfMaze(Area a){
+        return a.equals(endOfMaze());
+    }
 
     //pour le debug et afficher la map
-    public String dispGrille(){
+    public String displayGrid(){
         String res = "";
         for(int w = 0; w < this.gridHeight; w++) {
             for (int h = 0; h < this.gridWidth; h++) {

@@ -1,5 +1,7 @@
 package com.example.towerdefense;
 
+import java.util.Objects;
+
 public class Area {
     private AreaType areaType;
     private Enemy enemy;
@@ -46,6 +48,14 @@ public class Area {
     }
     public boolean isTowerArea(){
         return this.areaType == AreaType.TOWER;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Area area = (Area) o;
+        return areaType == area.areaType && Objects.equals(enemy, area.enemy) && Objects.equals(tower, area.tower);
     }
 
 }
