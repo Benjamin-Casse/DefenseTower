@@ -8,7 +8,7 @@ public class Area {
     private Tower tower;
     private Area next;
     private int posX;
-    int posY;
+    private int posY;
 
     public Area(AreaType areaType,int posX, int posY){
         this.areaType = areaType;

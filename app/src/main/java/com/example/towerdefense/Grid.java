@@ -8,19 +8,24 @@ public class Grid {
     private final int nbEnemyToKillForUlt = 3;
     private int nbVie;
     private int nbEnnemieAvantUlt;
+    private boolean isGameRunning;
 
     public Grid(){
         this.nbVie = 10;
+        this.isGameRunning = true;
         this.nbEnnemieAvantUlt = this.nbEnemyToKillForUlt;
 
         this.gridHeight = 11;
         this.gridWidth = 6;
         this.grid = new Area[this.gridHeight][this.gridWidth];
         initGrille();
+
+
         spawnEnemy("titi", 30, EnemyType.NINJA);
+    }
 
-        Log.d("oui", startOfMaze().toString());
-
+    public int getNbVie() {
+        return this.nbVie;
     }
 
     public void initGrille(){
@@ -74,6 +79,9 @@ public class Grid {
         return a.equals(endOfMaze());
     }
 
+    public int getNbEnnemieAvantUlt(){
+        return this.nbEnnemieAvantUlt;
+    }
     public void decreaseUlt(){
         if(this.nbEnnemieAvantUlt >= 0){
             this.nbEnnemieAvantUlt--;
@@ -118,17 +126,44 @@ public class Grid {
     public void enemyMovement(){
         for (int i = 0; i < this.gridHeight; i++) {
             for (Area a : this.grid[i]) {
-                if (a.hasEnemy()) {
+                if (a.hasEnemy() && !a.getEnemy().getHasMoved()) {
                     Area prochaineArea = a.getNext();
                     if(prochaineArea != null) {
                         if (!prochaineArea.hasEnemy()) {
+                            a.getEnemy().hasMoved();
                             prochaineArea.setEnemy(a.getEnemy());
                             a.delEnemy();
+
                         }
                     }
                 }
             }
         }
+        resetMove();
+    }
+
+    public void resetMove(){
+        for (int i = 0; i < this.gridHeight; i++) {
+            for (Area a : this.grid[i]) {
+                if(a.hasEnemy()){
+                    a.getEnemy().resetMove();
+                }
+            }
+        }
+    }
+
+    public void checkEnemyFin(){
+        if(endOfMaze().hasEnemy()){
+            this.nbVie--;
+            endOfMaze().delEnemy();
+        }
+        if(this.nbVie == 0){
+            this.isGameRunning = false;
+        }
+    }
+
+    public Boolean gameRunning(){
+        return this.isGameRunning;
     }
 
     //fonction pour le debug etc
@@ -137,31 +172,21 @@ public class Grid {
     public void hardCodePathNext(){
         startOfMaze().setNext(getArea(1,2));
         getArea(1,2).setNext(getArea(2,2));
-
-        /*
         getArea(2,2).setNext(getArea(3,2));
-
         getArea(3,2).setNext(getArea(3,3));
         getArea(3,3).setNext(getArea(3,4));
-
         getArea(3,4).setNext(getArea(4,4));
         getArea(4,4).setNext(getArea(5,4));
         getArea(5,4).setNext(getArea(6,4));
-
         getArea(6,4).setNext(getArea(6,3));
         getArea(6,3).setNext(getArea(6,2));
         getArea(6,2).setNext(getArea(6,1));
-
         getArea(6,1).setNext(getArea(7,1));
         getArea(7,1).setNext(getArea(8,1));
         getArea(8,1).setNext(getArea(9,1));
-
         getArea(9,1).setNext(getArea(9,2));
         getArea(9,2).setNext(getArea(9,3));
-
         getArea(9,3).setNext(getArea(10,3));
-    */
-
     }
     //pour le debug et afficher la map
     public String displayGrid(){
@@ -196,5 +221,4 @@ public class Grid {
         }
         return res;
     }
-
 }
