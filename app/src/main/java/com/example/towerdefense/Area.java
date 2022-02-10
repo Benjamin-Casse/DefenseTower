@@ -6,11 +6,17 @@ public class Area {
     private AreaType areaType;
     private Enemy enemy;
     private Tower tower;
+    private Area next;
+    private int posX;
+    int posY;
 
-    public Area(AreaType areaType){
+    public Area(AreaType areaType,int posX, int posY){
         this.areaType = areaType;
         this.enemy = null;
         this.tower = null;
+        this.posX = posX;
+        this.posY = posY;
+
     }
 
     public AreaType getAreaType() {
@@ -32,6 +38,16 @@ public class Area {
             return true;
         }
         return false;
+    }
+    public void delEnemy(){
+        this.enemy = null;
+    }
+
+    public void setNext(Area a){
+        this.next = a;
+    }
+    public Area getNext(){
+        return this.next;
     }
 
     public void setTower(Tower tower) {
@@ -58,4 +74,13 @@ public class Area {
         return areaType == area.areaType && Objects.equals(enemy, area.enemy) && Objects.equals(tower, area.tower);
     }
 
+    @Override
+    public String toString() {
+        return "Area{" +
+                "areaType=" + areaType +
+                ", enemy=" + enemy +
+                ", tower=" + tower +
+                ", next=" + "[" + this.next.posX + "," + this.next.posY + "]" +
+                '}';
+    }
 }
