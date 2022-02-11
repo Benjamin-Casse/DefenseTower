@@ -19,9 +19,6 @@ public class Grid {
         this.gridWidth = 6;
         this.grid = new Area[this.gridHeight][this.gridWidth];
         initGrille();
-
-
-        spawnEnemy("titi", 30, EnemyType.NINJA);
     }
 
     public int getNbVie() {
@@ -116,10 +113,10 @@ public class Grid {
         }
     }
 
-    public void spawnEnemy(String enemyName, int pv, EnemyType eT){
+    public void spawnEnemy(int pv, EnemyType eT){
         Area spawnPlace = startOfMaze();
         if(!startOfMaze().hasEnemy()){
-            spawnPlace.setEnemy(new Enemy(enemyName, pv, eT));
+            spawnPlace.setEnemy(new Enemy(pv, eT));
         }
     }
 

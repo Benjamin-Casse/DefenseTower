@@ -24,14 +24,17 @@ public class MainActivity extends Activity {
 
     private Runnable update = new Runnable() {
         public void run(){
-
+            //update l'ui
             updateGameVariable();
 
-            oui.spawnEnemy("kitty", 2, EnemyType.NINJA);
-            oui.enemyMovement();
+            //fait avancer le jeu
             oui.checkEnemyFin();
+            oui.spawnEnemy(2, EnemyType.NINJA);
+            oui.enemyMovement();
 
             nbSecs++;
+
+            //check fin de game
             if(oui.gameRunning()) {
                 handler.postDelayed(update,1000);
             }else{
@@ -41,17 +44,9 @@ public class MainActivity extends Activity {
         }
     };
 
-    public void update(Grid oui){
-
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-        //Log.d("oui", "ptn de :erde");
-
 
         setContentView(R.layout.activity_main);
 
@@ -60,10 +55,8 @@ public class MainActivity extends Activity {
         nbVies = (TextView) findViewById(R.id.nbVies);
         nbSec = (TextView) findViewById(R.id.secondes);
 
-
+        //lance le debut de la partie
         handler.post(update);
-
-
     }
 
     public void updateGameVariable(){

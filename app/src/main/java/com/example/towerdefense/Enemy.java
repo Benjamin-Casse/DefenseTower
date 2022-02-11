@@ -3,20 +3,21 @@ package com.example.towerdefense;
 import com.example.towerdefense.EnemyType;
 
 public class Enemy {
-    private String name;
     private int pv;
     private EnemyType enemyType;
     private boolean isAlive;
     private boolean hasMoved;
 
-    public Enemy(String name, int pv, EnemyType enemyType) {
-        this.name = name;
+    public Enemy(int pv, EnemyType enemyType) {
         this.pv = pv;
         this.enemyType = enemyType;
         this.isAlive = true;
         this.hasMoved = false;
     }
 
+
+
+    //Concernant le jeux
     public void takeDegat(int nbDegat){
         this.pv -= nbDegat;
         if(this.pv <= 0){
