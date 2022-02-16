@@ -1,7 +1,5 @@
 package com.example.towerdefense;
 
-import com.example.towerdefense.EnemyType;
-
 public class Enemy {
     private int pv;
     private EnemyType enemyType;
@@ -43,6 +41,10 @@ public class Enemy {
 
     public Boolean getHasMoved(){
         return this.hasMoved;
+    }
+
+    public boolean isNinja(){
+        return this.enemyType == EnemyType.NINJA;
     }
 
 }
