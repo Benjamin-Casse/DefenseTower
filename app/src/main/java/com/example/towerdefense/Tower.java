@@ -17,4 +17,8 @@ public class Tower {
             a.setMakeDamage(true);
         }
     }
+
+    public int getDamage(){
+        return this.degats;
+    }
 }

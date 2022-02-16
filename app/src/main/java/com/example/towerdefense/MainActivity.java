@@ -31,7 +31,8 @@ public class MainActivity extends Activity {
             oui.checkEnemyFin();
             oui.spawnEnemy(2, EnemyType.NINJA);
             oui.enemyMovement();
-
+            oui.ennemiesTakeDamage();
+            oui.delDeadEnemy();
 
             nbSecs++;
 
