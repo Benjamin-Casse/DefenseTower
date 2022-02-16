@@ -19,7 +19,7 @@ public class Enemy {
     public void takeDegat(int nbDegat){
         this.pv -= nbDegat;
         if(this.pv <= 0){
-            kill();
+            this.kill();
         }
     }
 

@@ -62,6 +62,7 @@ public class Grid {
     public boolean isTowerArea(int numLigne, int numCol){
         return getArea(numLigne,numCol).isTowerArea();
     }
+
     public boolean towerOn(int numLigne, int numCol){
         return getArea(numLigne, numCol).hasTower();
     }

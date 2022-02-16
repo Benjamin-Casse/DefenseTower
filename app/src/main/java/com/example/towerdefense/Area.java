@@ -9,6 +9,7 @@ public class Area {
     private Area next;
     private int posX;
     private int posY;
+    private boolean makeDamage;
 
     public Area(AreaType areaType,int posX, int posY){
         this.areaType = areaType;
@@ -48,6 +49,13 @@ public class Area {
     }
     public Area getNext(){
         return this.next;
+    }
+
+    public void setMakeDamage(Boolean makeDamage){
+        this.makeDamage = makeDamage;
+    }
+    public boolean getMakeDamage(){
+        return this.makeDamage;
     }
 
     public void setTower(Tower tower) {

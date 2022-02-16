@@ -32,6 +32,7 @@ public class MainActivity extends Activity {
             oui.spawnEnemy(2, EnemyType.NINJA);
             oui.enemyMovement();
 
+
             nbSecs++;
 
             //check fin de game
