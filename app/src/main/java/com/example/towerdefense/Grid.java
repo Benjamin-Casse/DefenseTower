@@ -140,12 +140,12 @@ public class Grid {
         }
     }
 
-    public void enemyMovement(){
+    public void enemyMovement() {
         for (int i = 0; i < this.gridHeight; i++) {
             for (Area a : this.grid[i]) {
                 if (a.hasEnemy() && !a.getEnemy().getHasMoved()) {
                     Area prochaineArea = a.getNext();
-                    if(prochaineArea != null) {
+                    if (prochaineArea != null) {
                         if (!prochaineArea.hasEnemy()) {
                             a.getEnemy().hasMoved();
                             prochaineArea.setEnemy(a.getEnemy());
