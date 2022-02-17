@@ -2,6 +2,7 @@ package com.example.towerdefense;
 
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Grid {
@@ -21,8 +22,12 @@ public class Grid {
         this.gridWidth = 6;
         this.grid = new Area[this.gridHeight][this.gridWidth];
         initGrille();
-        List<Area> ranges;//implementer la fonction pour récuperer les areas path autour de la tour
-        //this.grid[1][4].setTower(new Tower("FUCKAYOU", 2, ranges));
+        Tower test = new Tower("HEHEBOY", 1, TowerType.TERRESTRE);
+        List<Area> ranges = new ArrayList<>();//implementer la fonction pour récuperer les areas path autour de la tour
+        ranges.add(this.grid[0][2]);
+        ranges.add(this.grid[1][2]);
+        test.setTowerRange(ranges);
+        this.grid[0][1].setTower(test);
     }
 
     public int getNbVie() {
@@ -129,7 +134,7 @@ public class Grid {
         for (int i = 0; i < this.gridHeight; i++) {
             for (Area a : this.grid[i]) {
                 if(a.hasEnemy() && a.getMakeDamage()) {
-                    a.getEnemy().takeDegat(a.getTower().getDamage());
+                    a.getEnemy().takeDegat(a.getDamage());
                 }
             }
         }

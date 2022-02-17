@@ -10,6 +10,7 @@ public class Area {
     private int posX;
     private int posY;
     private boolean makeDamage;
+    private int damage;
 
     public Area(AreaType areaType,int posX, int posY){
         this.areaType = areaType;
@@ -22,6 +23,12 @@ public class Area {
 
     public AreaType getAreaType() {
         return areaType;
+    }
+    public int getDamage() {
+        return this.getDamage();
+    }
+    public void setDamage(int damage) {
+        this.damage = damage;
     }
 
     public boolean isPathArea(){
