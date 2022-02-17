@@ -24,16 +24,12 @@ public class MainActivity extends Activity {
 
     int nbSecs = 0;
 
-    TextView txt_currentAccel, txt_prevAccel, txt_acceleration;
-
     // The following are used for the shake detection
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
     private Sensor mLightSensor;
     private SensorEventListener mLuminosityDetector;
     private ShakeDetector mShakeDetector;
-    private float maxValue;
-    private View root;
 
     @Override
     public void onResume() {
@@ -47,17 +43,6 @@ public class MainActivity extends Activity {
         super.onPause();
         mSensorManager.unregisterListener(mShakeDetector);
         mSensorManager.unregisterListener(mLuminosityDetector);
-    }
-
-
-
-    //fonction qui va lancer l'ulti lorsque le joueur secoue x fois son mobile
-    private void handleShakeEvent(int count) {
-        if (count >= 3) {
-            //lancerUlti();
-        }
-        final TextView textViewToChange = (TextView) findViewById(R.id.count);
-        textViewToChange.setText(String.valueOf(count));
     }
 
     private Runnable update = new Runnable() {
@@ -94,14 +79,12 @@ public class MainActivity extends Activity {
         nbKillAvantUlti = (TextView) findViewById(R.id.nbAvantUlti);
         nbVies = (TextView) findViewById(R.id.nbVies);
         nbSec = (TextView) findViewById(R.id.secondes);
-        super.onCreate(savedInstanceState);
-        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 
+
+        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mLightSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
-        setContentView(R.layout.activity_main);
 
-        root = findViewById(R.id.root);
         if (mLightSensor == null) {
             Toast.makeText(this, "The device has no light sensor !", Toast.LENGTH_SHORT).show();
             finish();
@@ -112,6 +95,7 @@ public class MainActivity extends Activity {
 
 
         mShakeDetector = new ShakeDetector();
+
         //Event Listener sur les secousses
         mShakeDetector.setOnShakeListener(new ShakeDetector.OnShakeListener() {
 
@@ -120,15 +104,12 @@ public class MainActivity extends Activity {
                 handleShakeEvent(count);
             }
         });
-        maxValue = mLightSensor.getMaximumRange();
 
         //Event Listener sur la luminosité
         mLuminosityDetector = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
                 float value = sensorEvent.values[0];
-                final TextView textViewToChange = (TextView) findViewById(R.id.root);
-                textViewToChange.setText(String.valueOf(value));
                 //appeler fonction pour mettre chat ninja invisible
                 //setInvisible(Ennemy chat);
             }
@@ -140,6 +121,13 @@ public class MainActivity extends Activity {
         };
         //lance le debut de la partie
         handler.post(update);
+    }
+
+    //fonction qui va lancer l'ulti lorsque le joueur secoue x fois son mobile
+    private void handleShakeEvent(int count) {
+        if (count >= 3) {
+            this.oui.useUlt();
+        }
     }
 
     public void updateGameVariable(){

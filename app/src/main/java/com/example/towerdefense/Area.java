@@ -25,7 +25,7 @@ public class Area {
         return areaType;
     }
     public int getDamage() {
-        return this.getDamage();
+        return this.damage;
     }
     public void setDamage(int damage) {
         this.damage = damage;
