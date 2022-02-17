@@ -7,7 +7,6 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.os.Handler;
@@ -80,7 +79,7 @@ public class MainActivity extends Activity {
         nbVies = (TextView) findViewById(R.id.nbVies);
         nbSec = (TextView) findViewById(R.id.secondes);
 
-
+        //init des sensors
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mLightSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
