@@ -52,7 +52,7 @@ public class MainActivity extends Activity {
 
             //fait avancer le jeu
             oui.checkEnemyFin();
-            oui.spawnEnemy(2, EnemyType.NINJA);
+            oui.spawnEnemy(2, EnemyType.NINJA, true);
             oui.enemyMovement();
             oui.ennemiesTakeDamage();
             oui.delDeadEnemy();
@@ -109,9 +109,11 @@ public class MainActivity extends Activity {
         mLuminosityDetector = new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent sensorEvent) {
-                float value = sensorEvent.values[0];
-                //appeler fonction pour mettre chat ninja invisible
-                //setInvisible(Ennemy chat);
+                float luminosityValue = sensorEvent.values[0];
+                //si la luminosité est basse les ennemies invisibles deviennent visible
+                if(luminosityValue > 20) {
+                    oui.setEnnemyVisibleInGrid();
+                }
             }
 
             @Override
@@ -119,12 +121,14 @@ public class MainActivity extends Activity {
                 //ignorer
             }
         };
+
         //lance le debut de la partie
         handler.post(update);
     }
 
     //fonction qui va lancer l'ulti lorsque le joueur secoue x fois son mobile
     private void handleShakeEvent(int count) {
+        //si secoué 3 fois lance l'ultime si il est disponible
         if (count >= 3) {
             this.oui.useUlt();
         }

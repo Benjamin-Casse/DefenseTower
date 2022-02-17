@@ -5,15 +5,15 @@ public class Enemy {
     private EnemyType enemyType;
     private boolean isAlive;
     private boolean hasMoved;
+    private boolean isInvisible;
 
-    public Enemy(int pv, EnemyType enemyType) {
+    public Enemy(int pv, EnemyType enemyType, boolean isInvisible) {
         this.pv = pv;
         this.enemyType = enemyType;
         this.isAlive = true;
+        this.isInvisible = isInvisible;
         this.hasMoved = false;
     }
-
-
 
     //Concernant le jeux
     public void takeDegat(int nbDegat){
@@ -47,4 +47,11 @@ public class Enemy {
         return this.enemyType == EnemyType.NINJA;
     }
 
+    public boolean getIsInvisible() {
+        return this.isInvisible;
+    }
+
+    public void setIsInvisible(Boolean isInvisible) {
+        this.isInvisible = isInvisible;
+    }
 }

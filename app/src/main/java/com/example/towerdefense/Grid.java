@@ -64,6 +64,7 @@ public class Grid {
     public boolean ennemyOn(int numLigne, int numCol){
         return getArea(numLigne,numCol).hasEnemy();
     }
+
     public boolean isPathArea(int numLigne, int numCol){
         return getArea(numLigne,numCol).isPathArea();
     }
@@ -90,10 +91,12 @@ public class Grid {
         return this.nbEnnemieAvantUlt;
     }
     public void decreaseUlt(){
-        if(this.nbEnnemieAvantUlt >= 0){
+        if(this.nbEnnemieAvantUlt > 0){
             this.nbEnnemieAvantUlt--;
         }
     }
+
+
     public void useUlt(){
         if(this.nbEnnemieAvantUlt == 0){
             for (int i = 0; i < this.gridHeight; i++){
@@ -123,10 +126,20 @@ public class Grid {
         }
     }
 
-    public void spawnEnemy(int pv, EnemyType eT){
+    public void setEnnemyVisibleInGrid(){
+        for (int i = 0; i < this.gridHeight; i++){
+            for (Area a : this.grid[i]) {
+                if(a.hasEnemy()){
+                    a.getEnemy().setIsInvisible(false);
+                }
+            }
+        }
+    }
+
+    public void spawnEnemy(int pv, EnemyType eT, boolean b){
         Area spawnPlace = startOfMaze();
         if(!startOfMaze().hasEnemy()){
-            spawnPlace.setEnemy(new Enemy(pv, eT));
+            spawnPlace.setEnemy(new Enemy(pv, eT, b));
         }
     }
 
@@ -134,7 +147,12 @@ public class Grid {
         for (int i = 0; i < this.gridHeight; i++) {
             for (Area a : this.grid[i]) {
                 if(a.hasEnemy() && a.getMakeDamage()) {
-                    a.getEnemy().takeDegat(a.getDamage());
+                    if(a.getEnemy().getIsInvisible()){
+                        //do nothing
+                    }
+                    else {
+                        a.getEnemy().takeDegat(a.getDamage());
+                    }
                 }
             }
         }
@@ -150,7 +168,6 @@ public class Grid {
                             a.getEnemy().hasMoved();
                             prochaineArea.setEnemy(a.getEnemy());
                             a.delEnemy();
-
                         }
                     }
                 }
