@@ -6,13 +6,646 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:id="@+id/debugPrint"
+        android:layout_width="294dp"
+        android:layout_height="391dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonVersAccueil"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="57dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="55dp"
+        android:text="RETOUR"
+        app:layout_constraintBottom_toTopOf="@+id/debugPrint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+    <androidx.gridlayout.widget.GridLayout
+        android:layout_width="294dp"
+        android:layout_height="386dp"
+        android:layout_marginStart="59dp"
+        android:layout_marginEnd="59dp"
+        app:columnCount="6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rowCount="11">
+
+        <ImageView
+            android:id="@+id/grass"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_grass_24"
+            tools:ignore="MissingConstraints" />
+
+        <LinearLayout
+            android:id="@+id/layoutDrop2"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/empty"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_stop_24"
+            tools:ignore="MissingConstraints" />
+
+        <LinearLayout
+            android:id="@+id/layoutDrop3"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/grass2"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_grass_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/grass7"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_grass_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/grass25"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_grass_24"
+            tools:ignore="MissingConstraints" />
+
+        <LinearLayout
+            android:id="@+id/layoutDrop4"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/empty1"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_stop_24"
+            tools:ignore="MissingConstraints" />
+        <LinearLayout
+            android:id="@+id/layoutDrop5"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/grass4"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_grass_24"
+            tools:ignore="MissingConstraints" />
+        <ImageView
+            android:id="@+id/grass5"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_grass_24"
+            tools:ignore="MissingConstraints" />
+        <ImageView
+            android:id="@+id/grass6"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_grass_24"
+            tools:ignore="MissingConstraints" />
+        <LinearLayout
+            android:id="@+id/layoutDrop6"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/empty3"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_stop_24"
+            tools:ignore="MissingConstraints" />
+        <LinearLayout
+            android:id="@+id/layoutDrop7"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layoutDrop8"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layoutDrop9"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/grass8"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_grass_24"
+            tools:ignore="MissingConstraints" />
+        <LinearLayout
+            android:id="@+id/layoutDrop10"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/empty4"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_stop_24"
+            tools:ignore="MissingConstraints" />
+        <ImageView
+            android:id="@+id/empty5"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_stop_24"
+            tools:ignore="MissingConstraints" />
+        <ImageView
+            android:id="@+id/empty6"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_stop_24"
+            tools:ignore="MissingConstraints" />
+        <LinearLayout
+            android:id="@+id/layoutDrop11"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/grass9"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_grass_24"
+            tools:ignore="MissingConstraints" />
+        <LinearLayout
+            android:id="@+id/layoutDrop12"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layoutDrop13"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layoutDrop14"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/empty7"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_stop_24"
+            tools:ignore="MissingConstraints" />
+        <LinearLayout
+            android:id="@+id/layoutDrop15"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layoutDrop16"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layoutDrop17"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layoutDrop18"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layoutDrop19"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/empty8"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_stop_24"
+            tools:ignore="MissingConstraints" />
+        <LinearLayout
+            android:id="@+id/layoutDrop20"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layoutDrop21"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/empty10"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_stop_24"
+            tools:ignore="MissingConstraints" />
+        <ImageView
+            android:id="@+id/empty11"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_stop_24"
+            tools:ignore="MissingConstraints" />
+        <ImageView
+            android:id="@+id/empty12"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_stop_24"
+            tools:ignore="MissingConstraints" />
+        <ImageView
+            android:id="@+id/empty9"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_stop_24"
+            tools:ignore="MissingConstraints" />
+        <LinearLayout
+            android:id="@+id/layoutDrop22"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layoutDrop23"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/empty13"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_stop_24"
+            tools:ignore="MissingConstraints" />
+        <LinearLayout
+            android:id="@+id/layoutDrop24"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layoutDrop25"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layoutDrop26"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layoutDrop27"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layoutDrop28"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/empty14"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_stop_24"
+            tools:ignore="MissingConstraints" />
+        <LinearLayout
+            android:id="@+id/layoutDrop29"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layoutDrop30"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layoutDrop31"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/grass10"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_grass_24"
+            tools:ignore="MissingConstraints" />
+        <LinearLayout
+            android:id="@+id/layoutDrop32"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/empty15"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_stop_24"
+            tools:ignore="MissingConstraints" />
+        <ImageView
+            android:id="@+id/empty16"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_stop_24"
+            tools:ignore="MissingConstraints" />
+        <ImageView
+            android:id="@+id/empty17"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_stop_24"
+            tools:ignore="MissingConstraints" />
+        <LinearLayout
+            android:id="@+id/layoutDrop33"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/grass12"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_grass_24"
+            tools:ignore="MissingConstraints" />
+        <LinearLayout
+            android:id="@+id/layoutDrop34"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layoutDrop35"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layoutDrop36"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/empty18"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_stop_24"
+            tools:ignore="MissingConstraints" />
+        <LinearLayout
+            android:id="@+id/layoutDrop37"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="#EE501B"
+            tools:ignore="MissingConstraints"
+
+            android:orientation="horizontal">
+
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/grass13"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_grass_24"
+            tools:ignore="MissingConstraints" />
+
+
+
+    </androidx.gridlayout.widget.GridLayout>
+
+    <LinearLayout
+        android:layout_width="294dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="59dp"
+        android:layout_marginEnd="59dp"
+        app:columnCount="5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/debugPrint"
+        app:layout_constraintVertical_bias="1.0"
+        app:rowCount="1">
+
+        <ImageView
+            android:id="@+id/tower1"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_tour_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/tower2"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_tour_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/tower3"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_tour_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/tower4"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_tour_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/tower5"
+            android:layout_width="49dp"
+            android:layout_height="35dp"
+            android:background="@drawable/ic_baseline_tour_24"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
