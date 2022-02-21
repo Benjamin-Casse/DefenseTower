@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:ignore="MissingClass">
 
 
     <TextView
@@ -31,8 +32,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-
-
     <androidx.gridlayout.widget.GridLayout
         android:layout_width="294dp"
         android:layout_height="386dp"
@@ -57,9 +56,9 @@
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
 
@@ -75,9 +74,9 @@
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
 
@@ -107,9 +106,9 @@
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
 
@@ -119,481 +118,537 @@
             android:layout_height="35dp"
             android:background="@drawable/ic_baseline_stop_24"
             tools:ignore="MissingConstraints" />
+
         <LinearLayout
             android:id="@+id/layoutDrop5"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <ImageView
             android:id="@+id/grass4"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="@drawable/ic_baseline_grass_24"
             tools:ignore="MissingConstraints" />
+
         <ImageView
             android:id="@+id/grass5"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="@drawable/ic_baseline_grass_24"
             tools:ignore="MissingConstraints" />
+
         <ImageView
             android:id="@+id/grass6"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="@drawable/ic_baseline_grass_24"
             tools:ignore="MissingConstraints" />
+
         <LinearLayout
             android:id="@+id/layoutDrop6"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <ImageView
             android:id="@+id/empty3"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="@drawable/ic_baseline_stop_24"
             tools:ignore="MissingConstraints" />
+
         <LinearLayout
             android:id="@+id/layoutDrop7"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/layoutDrop8"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/layoutDrop9"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <ImageView
             android:id="@+id/grass8"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="@drawable/ic_baseline_grass_24"
             tools:ignore="MissingConstraints" />
+
         <LinearLayout
             android:id="@+id/layoutDrop10"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <ImageView
             android:id="@+id/empty4"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="@drawable/ic_baseline_stop_24"
             tools:ignore="MissingConstraints" />
+
         <ImageView
             android:id="@+id/empty5"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="@drawable/ic_baseline_stop_24"
             tools:ignore="MissingConstraints" />
+
         <ImageView
             android:id="@+id/empty6"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="@drawable/ic_baseline_stop_24"
             tools:ignore="MissingConstraints" />
+
         <LinearLayout
             android:id="@+id/layoutDrop11"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <ImageView
             android:id="@+id/grass9"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="@drawable/ic_baseline_grass_24"
             tools:ignore="MissingConstraints" />
+
         <LinearLayout
             android:id="@+id/layoutDrop12"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/layoutDrop13"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/layoutDrop14"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <ImageView
             android:id="@+id/empty7"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="@drawable/ic_baseline_stop_24"
             tools:ignore="MissingConstraints" />
+
         <LinearLayout
             android:id="@+id/layoutDrop15"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/layoutDrop16"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/layoutDrop17"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/layoutDrop18"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/layoutDrop19"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <ImageView
             android:id="@+id/empty8"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="@drawable/ic_baseline_stop_24"
             tools:ignore="MissingConstraints" />
+
         <LinearLayout
             android:id="@+id/layoutDrop20"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/layoutDrop21"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <ImageView
             android:id="@+id/empty10"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="@drawable/ic_baseline_stop_24"
             tools:ignore="MissingConstraints" />
+
         <ImageView
             android:id="@+id/empty11"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="@drawable/ic_baseline_stop_24"
             tools:ignore="MissingConstraints" />
+
         <ImageView
             android:id="@+id/empty12"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="@drawable/ic_baseline_stop_24"
             tools:ignore="MissingConstraints" />
+
         <ImageView
             android:id="@+id/empty9"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="@drawable/ic_baseline_stop_24"
             tools:ignore="MissingConstraints" />
+
         <LinearLayout
             android:id="@+id/layoutDrop22"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/layoutDrop23"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <ImageView
             android:id="@+id/empty13"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="@drawable/ic_baseline_stop_24"
             tools:ignore="MissingConstraints" />
+
         <LinearLayout
             android:id="@+id/layoutDrop24"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/layoutDrop25"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/layoutDrop26"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/layoutDrop27"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/layoutDrop28"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <ImageView
             android:id="@+id/empty14"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="@drawable/ic_baseline_stop_24"
             tools:ignore="MissingConstraints" />
+
         <LinearLayout
             android:id="@+id/layoutDrop29"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/layoutDrop30"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/layoutDrop31"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <ImageView
             android:id="@+id/grass10"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="@drawable/ic_baseline_grass_24"
             tools:ignore="MissingConstraints" />
+
         <LinearLayout
             android:id="@+id/layoutDrop32"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <ImageView
             android:id="@+id/empty15"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="@drawable/ic_baseline_stop_24"
             tools:ignore="MissingConstraints" />
+
         <ImageView
             android:id="@+id/empty16"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="@drawable/ic_baseline_stop_24"
             tools:ignore="MissingConstraints" />
+
         <ImageView
             android:id="@+id/empty17"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="@drawable/ic_baseline_stop_24"
             tools:ignore="MissingConstraints" />
+
         <LinearLayout
             android:id="@+id/layoutDrop33"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <ImageView
             android:id="@+id/grass12"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="@drawable/ic_baseline_grass_24"
             tools:ignore="MissingConstraints" />
+
         <LinearLayout
             android:id="@+id/layoutDrop34"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/layoutDrop35"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/layoutDrop36"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <ImageView
             android:id="@+id/empty18"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="@drawable/ic_baseline_stop_24"
             tools:ignore="MissingConstraints" />
+
         <LinearLayout
             android:id="@+id/layoutDrop37"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="#EE501B"
-            tools:ignore="MissingConstraints"
+            android:orientation="horizontal"
 
-            android:orientation="horizontal">
+            tools:ignore="MissingConstraints">
 
         </LinearLayout>
+
         <ImageView
             android:id="@+id/grass13"
             android:layout_width="49dp"
             android:layout_height="35dp"
             android:background="@drawable/ic_baseline_grass_24"
             tools:ignore="MissingConstraints" />
-
 
 
     </androidx.gridlayout.widget.GridLayout>
