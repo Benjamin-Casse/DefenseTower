@@ -8,9 +8,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.GridView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import java.util.ArrayList;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -22,6 +23,8 @@ public class GameActivity extends AppCompatActivity {
 
     Grid oui = new Grid();
     Handler handler = new Handler();
+    GridView list;
+    ArrayList<String> data = new ArrayList<String>();
 
     int nbSecs = 0;
 
@@ -62,6 +65,16 @@ public class GameActivity extends AppCompatActivity {
         nbSec = (TextView) findViewById(R.id.score);
         textUlti = (TextView) findViewById(R.id.textUlti);
         textUlti.setVisibility(View.INVISIBLE);
+        for (int i = 0; i < 11; i++) {
+            for(int j=0;j<6;j++){
+                data.add("la");
+            }
+        }
+        Log.d("DATALA",data.toString());
+        GridViewCustomAdapter adapter = new GridViewCustomAdapter(this, data);
+
+        list = (GridView) findViewById(R.id.gridViewFront);
+        list.setAdapter(adapter);
 
         //lance le debut de la partie
         handler.post(update);
