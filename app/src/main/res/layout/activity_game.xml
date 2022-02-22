@@ -6,11 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".GameActivity">
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="560dp"
+        android:layout_height="987dp"
+        android:src="@drawable/fondtowerdef"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/debugPrint"
         android:layout_width="294dp"
         android:layout_height="391dp"
         android:text="TextView"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -22,6 +33,7 @@
         android:layout_width="54dp"
         android:layout_height="22dp"
         android:text="nb vie :"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/debugPrint"
         app:layout_constraintEnd_toStartOf="@+id/nbVies"
         app:layout_constraintHorizontal_bias="0.816"
@@ -34,6 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.268"
@@ -47,6 +60,7 @@
         android:layout_height="22dp"
         android:layout_marginStart="28dp"
         android:text="temps de jeu :"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/debugPrint"
         app:layout_constraintEnd_toStartOf="@+id/nbVies"
         app:layout_constraintHorizontal_bias="0.035"
@@ -72,6 +86,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:text="TextView"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/debugPrint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -83,6 +98,7 @@
         android:layout_height="26dp"
         android:layout_marginBottom="16dp"
         android:text="Nb d'enemie a tuer avant ulti :"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.154"
@@ -96,8 +112,21 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="TextView"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/debugPrint"
         app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.39" />
+
+    <TextView
+        android:id="@+id/textUlti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Secoue ton téléphone pour utilisé l'ulti!"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
