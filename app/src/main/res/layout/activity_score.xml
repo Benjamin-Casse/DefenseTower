@@ -10,7 +10,7 @@
         android:id="@+id/textView"
         android:layout_width="267dp"
         android:layout_height="59dp"
-        android:text="~ Score ~"
+        android:text=" Score "
         android:textAlignment="center"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/scorePrint"
