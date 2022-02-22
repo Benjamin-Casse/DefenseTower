@@ -6,12 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".ScoreActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="560dp"
+        android:layout_height="987dp"
+        android:src="@drawable/fondtowerdef"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="267dp"
         android:layout_height="59dp"
         android:text=" Score "
         android:textAlignment="center"
+        android:textColor="#FFFFFF"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/scorePrint"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,6 +34,7 @@
         android:layout_width="264dp"
         android:layout_height="488dp"
         android:text="TextView"
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
