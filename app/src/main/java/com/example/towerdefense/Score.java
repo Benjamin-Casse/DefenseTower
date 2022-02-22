@@ -40,6 +40,14 @@ public class Score {
         }
     }
 
+    public String displayScore(){
+        String res = "";
+        for(int score = 0; score < 5 ; score++){
+            res += (score+1) + ". " + this.scoreTab.get(score) + "\n\n";
+        }
+        return res;
+    }
+
     @Override
     public String toString() {
         return "Score{" +
