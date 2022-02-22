@@ -40,6 +40,7 @@ public class Score {
         }
     }
 
+    //Affiche le score dans le textview prevu a cette effet
     public String displayScore(){
         String res = "";
         for(int score = 0; score < 5 ; score++){
