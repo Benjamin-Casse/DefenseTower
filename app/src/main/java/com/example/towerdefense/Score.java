@@ -43,7 +43,12 @@ public class Score {
     public String displayScore(){
         String res = "";
         for(int score = 0; score < 5 ; score++){
-            res += (score+1) + ". " + this.scoreTab.get(score) + "\n\n";
+            int scoreSec = this.scoreTab.get(score);
+            if(scoreSec > 60){
+                res += (score+1) + ". " + scoreSec%60 + "m " + (scoreSec - (scoreSec%60 * 60)) + "s\n\n";
+            } else {
+                res += (score+1) + ". " + scoreSec + " s\n\n";
+            }
         }
         return res;
     }
