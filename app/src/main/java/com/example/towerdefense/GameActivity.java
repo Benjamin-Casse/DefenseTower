@@ -1,6 +1,7 @@
 package com.example.towerdefense;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.ClipData;
 import android.content.ClipDescription;
@@ -17,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -119,7 +121,7 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
         tower5.setTag(IMAGEVIEW_TAG4);
         tower5.setOnLongClickListener(this);
 
-        findViewById(R.id.gridViewFront).setOnDragListener(this);
+        findViewById(R.id.button).setOnDragListener(this);
 
 
         handler.post(update);
@@ -215,7 +217,7 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
                 // Re-sets the color tint to blue. Returns true; the return value is ignored.
                 // view.getBackground().setColorFilter(Color.BLUE, PorterDuff.Mode.SRC_IN);
                 //It will clear a color filter .
-                v.getBackground().clearColorFilter();
+                //v.getBackground().clearColorFilter();
                 // Invalidate the view to force a redraw in the new tint
                 v.invalidate();
                 return true;
@@ -236,15 +238,24 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
                 ViewGroup owner = (ViewGroup) vw.getParent();
                 owner.removeView(vw); //remove the dragged view
                 //caste the view into LinearLayout as our drag acceptable layout is LinearLayout
-                GridView container = (GridView) v;
-                container.addView(vw);//Add the dragged view
+                //GridView container = (GridView) v;
+                oui.getArea(0,1).setTower(new Tower("T1", 3));
+                adapter.items.set(1,oui.getArea(0,1).getTower().getName());
+
+                adapter.notifyDataSetChanged();
+                //int position = list.getPositionForView((View) v.getParent());
+                //Log.d("CONTEXTEE", String.valueOf(position));
+                //int id = (int) list.getAdapter().getItem(position);
+                //Log.d("CONTEXTEEE", String.valueOf(id));
+
+                //container.addView(vw);//Add the dragged view
                 vw.setVisibility(View.VISIBLE);//finally set Visibility to VISIBLE
                 // Returns true. DragEvent.getResult() will return true.
                 return true;
 
             case DragEvent.ACTION_DRAG_ENDED:
                 // Turns off any color tinting
-                v.getBackground().clearColorFilter();
+            //    v.getBackground().clearColorFilter();
                 // Invalidates the view to force a redraw
                 v.invalidate();
                 // Does a getResult(), and displays what happened.

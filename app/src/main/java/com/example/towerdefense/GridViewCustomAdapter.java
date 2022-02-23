@@ -52,8 +52,9 @@ public class GridViewCustomAdapter extends BaseAdapter {
         View v = null;
         v = inflater.inflate(R.layout.item, null);
         Button tv = (Button) v.findViewById(R.id.button);
+
         tv.setText(items.get(position));
-        tv.setBackground();
+        //tv.setBackground();
 
         return v;
     }
@@ -61,8 +62,13 @@ public class GridViewCustomAdapter extends BaseAdapter {
         items.clear();
         for (int i = 0; i < 11; i++) {
             for(int j=0;j<6;j++){
-                if(grid.getGrid()[i][j].getAreaType() == AreaType.TOWER)
-                    items.add("T");
+                if(grid.getGrid()[i][j].getAreaType() == AreaType.TOWER){
+                    if (grid.getGrid()[i][j].hasTower() == true)
+                        items.add("T1");
+                    else
+                        items.add("T");
+                }
+
                 if(grid.getGrid()[i][j].getAreaType() == AreaType.PATH){
                     if (grid.getGrid()[i][j].getEnemy() != null){
                         items.add("E");
