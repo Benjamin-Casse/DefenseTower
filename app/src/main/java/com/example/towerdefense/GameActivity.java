@@ -63,7 +63,15 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
             oui.checkEnemyFin();
             updateGameVariable();
             list.invalidateViews();
-            oui.spawnEnemy(2, EnemyType.NINJA);
+            int temp = (Math.random() <= 0.5) ? 1 : 2;
+
+            if(temp % 2 == 0) {
+                oui.spawnEnemy(13, EnemyType.TERRESTRE);
+            }
+            else {
+                oui.spawnEnemy(50, EnemyType.TERRESTRE);
+            }
+
             oui.enemyMovement();
             oui.ennemiesTakeDamage();
             oui.delDeadEnemy();
@@ -247,7 +255,7 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
 
                 //Tower 1
                 if (tower1Drop.equals("Tower 1")){
-                    Tower t1 = new Tower("T1", 3);
+                    Tower t1 = new Tower("T1", 5);
                     ArrayList<Area> t1area = new ArrayList<>();
                     t1area.add(oui.getArea(0,2));
                     t1area.add(oui.getArea(1,2));
@@ -259,7 +267,7 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
 
                 //Tower 2 (ligne 5 colonne 6)
                 if (tower2Drop.equals("Tower 2")){
-                    Tower t2 = new Tower("T2", 3);
+                    Tower t2 = new Tower("T2", 5);
                     ArrayList<Area> t2area = new ArrayList<>();
                     t2area.add(oui.getArea(3,4));
                     t2area.add(oui.getArea(4,4));
@@ -272,7 +280,7 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
 
                 //Tower 3 (ligne 8 colonne 0)
                 if (tower3Drop.equals("Tower 3")){
-                    Tower t3 = new Tower("T3", 3);
+                    Tower t3 = new Tower("T3", 5);
                     ArrayList<Area> t3area = new ArrayList<>();
                     t3area.add(oui.getArea(7,1));
                     t3area.add(oui.getArea(8,1));

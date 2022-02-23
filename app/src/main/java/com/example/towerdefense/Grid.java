@@ -94,7 +94,7 @@ public class Grid {
             for (int i = 0; i < this.gridHeight; i++){
                 for (Area a : this.grid[i]) {
                     if(a.hasEnemy()){
-                        a.getEnemy().takeDegat(20);
+                        a.getEnemy().takeDegat(15);
                     }
                 }
             }
