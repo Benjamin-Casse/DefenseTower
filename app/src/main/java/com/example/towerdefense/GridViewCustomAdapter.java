@@ -53,6 +53,7 @@ public class GridViewCustomAdapter extends BaseAdapter {
         v = inflater.inflate(R.layout.item, null);
         Button tv = (Button) v.findViewById(R.id.button);
         tv.setText(items.get(position));
+        tv.setBackground();
 
         return v;
     }

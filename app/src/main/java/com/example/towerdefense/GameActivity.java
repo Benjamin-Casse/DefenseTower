@@ -84,7 +84,8 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
         list = (GridView) findViewById(R.id.gridViewFront);
         list.setAdapter(adapter);
 
-     /*   //lance le debut de la partie
+        /*
+        //lance le debut de la partie
         button3 = (ImageView) findViewById(R.id.tower1) ;
         tower1.setTag(IMAGEVIEW_TAG);
         tower1.setOnLongClickListener(this);
