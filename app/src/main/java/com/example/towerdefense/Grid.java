@@ -13,7 +13,7 @@ public class Grid {
     private boolean isGameRunning;
 
     public Grid(){
-        this.nbVie = 10;
+        this.nbVie = 5;
         this.isGameRunning = true;
         this.nbEnnemieAvantUlt = this.nbEnemyToKillForUlt;
 
