@@ -129,7 +129,7 @@ public class Grid {
         for (int i = 0; i < this.gridHeight; i++) {
             for (Area a : this.grid[i]) {
                 if(a.hasEnemy() && a.getMakeDamage()) {
-                    a.getEnemy().takeDegat(a.getTower().getDamage());
+                    a.getEnemy().takeDegat(a.getDamage());
                 }
             }
         }

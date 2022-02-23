@@ -255,7 +255,10 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
                     adapter.items.set(1,oui.getArea(0,1).getTower().getName());
                 }
 
+                //Tower 2
 
+
+                //Tower 3
 
                 adapter.notifyDataSetChanged();
                 //int position = list.getPositionForView((View) v.getParent());
