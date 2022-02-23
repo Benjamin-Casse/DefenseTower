@@ -6,7 +6,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +26,6 @@ public class GridViewCustomAdapter extends BaseAdapter {
 
         inflater = (LayoutInflater) activity
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        Log.d("DATALALA",inflater.toString());
     }
 
     @Override
@@ -55,7 +53,6 @@ public class GridViewCustomAdapter extends BaseAdapter {
         v = inflater.inflate(R.layout.item, null);
         Button tv = (Button) v.findViewById(R.id.button);
 
-        //tv.setText(items.get(position));
         switch(items.get(position)){
             case "T1":
                 tv.setBackgroundTintList(ColorStateList.valueOf(Color.BLACK));
@@ -65,6 +62,9 @@ public class GridViewCustomAdapter extends BaseAdapter {
                 break;
             case "E":
                 tv.setBackgroundTintList(ColorStateList.valueOf(Color.RED));
+                break;
+            case "P":
+                tv.setBackgroundTintList(ColorStateList.valueOf(Color.YELLOW));
                 break;
             default:
                 tv.setBackgroundTintList(ColorStateList.valueOf(Color.GREEN));

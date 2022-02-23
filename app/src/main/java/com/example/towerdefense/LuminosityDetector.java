@@ -5,10 +5,10 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 
 public class LuminosityDetector implements SensorEventListener {
-    private LuminosityDetector.OnLuminosityListener mListener;
+    private LuminosityDetector.OnLuminosityListener listener;
 
     public void setOnLuminosityListener(LuminosityDetector.OnLuminosityListener listener) {
-        this.mListener = listener;
+        this.listener = listener;
     }
 
     public interface OnLuminosityListener {
@@ -18,7 +18,7 @@ public class LuminosityDetector implements SensorEventListener {
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
         float value = sensorEvent.values[0];
-        mListener.onChange(Math.round(value));
+        listener.onChange(Math.round(value));
     }
 
     @Override

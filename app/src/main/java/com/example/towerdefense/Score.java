@@ -1,7 +1,5 @@
 package com.example.towerdefense;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -45,9 +43,9 @@ public class Score {
         for(int score = 0; score < 5 ; score++){
             int scoreSec = this.scoreTab.get(score);
             if(scoreSec > 60){
-                res += (score+1) + ". " + scoreSec%60 + "m " + (scoreSec - ((scoreSec%60) * 60)) + "s\n\n";
+                res += "~" + (score+1) + "~ " + (scoreSec / 60) % 60 + "m " + scoreSec%60 + "s\n\n";
             } else {
-                res += (score+1) + ". " + scoreSec + " s\n\n";
+                res += "~" +(score+1) + "~ " + scoreSec + " s\n\n";
             }
         }
         return res;

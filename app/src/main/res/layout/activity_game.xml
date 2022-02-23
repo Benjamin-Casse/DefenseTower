@@ -178,21 +178,6 @@
             android:paddingVertical="0dp"
             android:text="T3" />
 
-        <Button
-            android:id="@+id/tower4"
-            android:layout_width="match_parent"
-            android:layout_height="59dp"
-            android:paddingHorizontal="0dp"
-            android:paddingVertical="0dp"
-            android:text="T4" />
-
-        <Button
-            android:id="@+id/tower5"
-            android:layout_width="match_parent"
-            android:layout_height="62dp"
-            android:paddingHorizontal="0dp"
-            android:paddingVertical="0dp"
-            android:text="T5" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

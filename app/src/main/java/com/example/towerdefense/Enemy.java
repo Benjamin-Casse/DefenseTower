@@ -13,9 +13,6 @@ public class Enemy {
         this.hasMoved = false;
     }
 
-
-
-    //Concernant le jeux
     public void takeDegat(int nbDegat){
         this.pv -= nbDegat;
         if(this.pv <= 0){

@@ -1,16 +1,12 @@
 package com.example.towerdefense;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.ClipData;
 import android.content.ClipDescription;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Bundle;
@@ -22,13 +18,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class GameActivity extends AppCompatActivity implements  View.OnDragListener, View.OnLongClickListener {
 
@@ -38,11 +31,11 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
     TextView debugPrint;
     TextView textUlti;
 
-    private SensorManager mSensorManager;
-    private Sensor mAccelerometer;
-    private Sensor mLightSensor;
-    private LuminosityDetector mLuminosityDetector;
-    private ShakeDetector mShakeDetector;
+    private SensorManager sensorManager;
+    private Sensor accelerometer;
+    private Sensor lightSensor;
+    private LuminosityDetector luminosityDetector;
+    private ShakeDetector shakeDetector;
 
     GridViewCustomAdapter adapter;
     Grid oui = new Grid();
@@ -54,14 +47,10 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
     private static final Object IMAGEVIEW_TAG = "Tower 1" ;
     private static final Object IMAGEVIEW_TAG1 = "Tower 2" ;
     private static final Object IMAGEVIEW_TAG2 = "Tower 3" ;
-    private static final Object IMAGEVIEW_TAG3 = "Tower 4" ;
-    private static final Object IMAGEVIEW_TAG4 = "Tower 5" ;
     //REPASSER EN IMAGE VIEW AU PIRE
     Button tower1;
     Button tower2;
     Button tower3;
-    Button tower4;
-    Button tower5;
 
     int nbSecs = 0;
 
@@ -105,15 +94,15 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
     @Override
     public void onResume() {
         super.onResume();
-        mSensorManager.registerListener(mShakeDetector, mAccelerometer,    SensorManager.SENSOR_DELAY_UI);
-        mSensorManager.registerListener(mLuminosityDetector, mLightSensor, SensorManager.SENSOR_DELAY_FASTEST);
+        sensorManager.registerListener(shakeDetector, accelerometer,    SensorManager.SENSOR_DELAY_UI);
+        sensorManager.registerListener(luminosityDetector, lightSensor, SensorManager.SENSOR_DELAY_FASTEST);
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        mSensorManager.unregisterListener(mShakeDetector);
-        mSensorManager.unregisterListener(mLuminosityDetector);
+        sensorManager.unregisterListener(shakeDetector);
+        sensorManager.unregisterListener(luminosityDetector);
     }
 
 
@@ -121,15 +110,14 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
 
-        mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        mLightSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
-
-        if (mLightSensor == null) {
+        if (lightSensor == null) {
             Toast.makeText(this, "The device has no light sensor !", Toast.LENGTH_SHORT).show();
             finish();
-        } else if (mAccelerometer == null) {
+        } else if (accelerometer == null) {
             Toast.makeText(this, "The device has no accelerometer sensor !", Toast.LENGTH_SHORT).show();
             finish();
         }
@@ -161,42 +149,34 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
         tower3.setTag(IMAGEVIEW_TAG2);
         tower3.setOnLongClickListener(this);
 
-        tower4 = (Button) findViewById(R.id.tower4) ;
-        tower4.setTag(IMAGEVIEW_TAG3);
-        tower4.setOnLongClickListener(this);
-
-        tower5 = (Button) findViewById(R.id.tower5) ;
-        tower5.setTag(IMAGEVIEW_TAG4);
-        tower5.setOnLongClickListener(this);
-
         findViewById(R.id.gridViewFront).setOnDragListener(this);
 
+        //ImageView pour changer le fond en fonction des listeners
+        ImageView imageView = (ImageView) findViewById(R.id.imageView2);
 
-        mShakeDetector = new ShakeDetector();
+        shakeDetector = new ShakeDetector();
         //Event Listener sur les secousses
-        mShakeDetector.setOnShakeListener(new ShakeDetector.OnShakeListener() {
+        shakeDetector.setOnShakeListener(new ShakeDetector.OnShakeListener() {
 
             @Override
             public void onShake(int nbOfShake) {
                 if(nbOfShake >= 3) {
-                    Log.d("ULT", "Je suis rentré dans le listener shake pour lancer mon ult");
                     oui.useUlt();
                 }
             }
         });
 
         //Event Listener sur la luminosité
-        mLuminosityDetector = new LuminosityDetector();
-        ImageView imageView = (ImageView) findViewById(R.id.imageView2);
-        mLuminosityDetector.setOnLuminosityListener(new LuminosityDetector.OnLuminosityListener() {
+        luminosityDetector = new LuminosityDetector();
+
+        luminosityDetector.setOnLuminosityListener(new LuminosityDetector.OnLuminosityListener() {
             @Override
             public void onChange(int luminosityValue) {
                 if(luminosityValue < 10) {
-                    Log.d("CHANGEBCKGROUND", "Je vais changer le background");
                     imageView.setImageResource(R.drawable.night);
                 }
                 else {
-                    imageView.setImageResource(R.drawable.fondtowerdef);
+                    imageView.setImageResource(R.drawable.day);
                 }
             }
         });
@@ -239,83 +219,52 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
 
     @Override
     public boolean onLongClick(View view) {
-        // Create a new ClipData.Item from the ImageView object's tag
         ClipData.Item item = new ClipData.Item((CharSequence) view.getTag());
-        // Create a new ClipData using the tag as a label, the plain text MIME type, and
-        // the already-created item. This will create a new ClipDescription object within the
-        // ClipData, and set its MIME type entry to "text/plain"
         String[] mimeTypes = {ClipDescription.MIMETYPE_TEXT_PLAIN};
         ClipData data = new ClipData(view.getTag().toString(), mimeTypes, item);
-        // Instantiates the drag shadow builder.
         View.DragShadowBuilder dragshadow = new View.DragShadowBuilder(view);
-        // Starts the drag
-        view.startDrag(data        // data to be dragged
-                , dragshadow   // drag shadow builder
-                , view         // local data about the drag and drop operation
-                , 0          // flags (not currently used, set to 0)
+        view.startDrag(data
+                , dragshadow
+                , view
+                , 0
         );
         return true;
     }
 
     @Override
     public boolean onDrag(View v, DragEvent dragEvent) {
-        // Defines a variable to store the action type for the incoming event
+
         int action = dragEvent.getAction();
-        // Handles each of the expected events
+
         switch (action) {
 
             case DragEvent.ACTION_DRAG_STARTED:
-                // Determines if this View can accept the dragged data
                 if (dragEvent.getClipDescription().hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN)) {
-                    // if you want to apply color when drag started to your view you can uncomment below lines
-                    // to give any color tint to the View to indicate that it can accept data.
-                    // v.getBackground().setColorFilter(Color.BLUE, PorterDuff.Mode.SRC_IN);
-                    // Invalidate the view to force a redraw in the new tint
                     v.invalidate();
-                    // returns true to indicate that the View can accept the dragged data.
                     return true;
                 }
-                // Returns false. During the current drag and drop operation, this View will
-                // not receive events again until ACTION_DRAG_ENDED is sent.
                 return false;
 
             case DragEvent.ACTION_DRAG_ENTERED:
-                // Applies a GRAY or any color tint to the View. Return true; the return value is ignored.
-                // v.getBackground().setColorFilter(Color.GRAY, PorterDuff.Mode.SRC_IN);
-                // Invalidate the view to force a redraw in the new tint
                 v.invalidate();
                 return true;
 
             case DragEvent.ACTION_DRAG_LOCATION:
-                // Ignore the event
                 return true;
 
             case DragEvent.ACTION_DRAG_EXITED:
-                // Re-sets the color tint to blue. Returns true; the return value is ignored.
-                // view.getBackground().setColorFilter(Color.BLUE, PorterDuff.Mode.SRC_IN);
-                //It will clear a color filter .
-                //v.getBackground().clearColorFilter();
-                // Invalidate the view to force a redraw in the new tint
                 v.invalidate();
                 return true;
 
             case DragEvent.ACTION_DROP:
-                // Gets the item containing the dragged data
                 ClipData.Item item = dragEvent.getClipData().getItemAt(0);
-                // Gets the text data from the item.
                 String dragData = item.getText().toString();
-                // Displays a message containing the dragged data.
                 Toast.makeText(this, "Dragged data is " + dragData, Toast.LENGTH_SHORT).show();
-                // Turns off any color tints
-                //v.getBackground().clearColorFilter();
-                // Invalidates the view to force a redraw
                 v.invalidate();
 
                 View vw = (View) dragEvent.getLocalState();
                 ViewGroup owner = (ViewGroup) vw.getParent();
-                owner.removeView(vw); //remove the dragged view
-                //caste the view into LinearLayout as our drag acceptable layout is LinearLayout
-                //GridView container = (GridView) v;
+                owner.removeView(vw);
                 String tower1Drop = item.getText().toString();
                 String tower2Drop = item.getText().toString();
                 String tower3Drop = item.getText().toString();
@@ -359,31 +308,17 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
                     adapter.items.set(48,oui.getArea(8,0).getTower().getName());
                 }
 
-
-                //Tower 3
-
                 adapter.notifyDataSetChanged();
-                //int position = list.getPositionForView((View) v.getParent());
-                //Log.d("CONTEXTEE", String.valueOf(position));
-                //int id = (int) list.getAdapter().getItem(position);
-                //Log.d("CONTEXTEEE", String.valueOf(id));
 
-                //container.addView(vw);//Add the dragged view
-                vw.setVisibility(View.VISIBLE);//finally set Visibility to VISIBLE
-                // Returns true. DragEvent.getResult() will return true.
+                vw.setVisibility(View.VISIBLE);
                 return true;
 
             case DragEvent.ACTION_DRAG_ENDED:
-                // Turns off any color tinting
-            //    v.getBackground().clearColorFilter();
-                // Invalidates the view to force a redraw
                 v.invalidate();
-                // Does a getResult(), and displays what happened.
                 if (dragEvent.getResult())
                     Toast.makeText(this, "The drop was handled.", Toast.LENGTH_SHORT).show();
                 else
                     Toast.makeText(this, "The drop didn't work.", Toast.LENGTH_SHORT).show();
-                // returns true; the value is ignored.
                 return true;
 
             default:

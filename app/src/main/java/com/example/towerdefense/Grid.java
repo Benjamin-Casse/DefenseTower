@@ -1,13 +1,11 @@
 package com.example.towerdefense;
 
-import android.util.Log;
-
 import java.util.List;
 
 public class Grid {
     private final Area[][] grid;
     private final int gridHeight, gridWidth;
-    private final int nbEnemyToKillForUlt = 3;
+    private final int nbEnemyToKillForUlt;
     private int nbVie;
     private int nbEnnemieAvantUlt;
     private boolean isGameRunning;
@@ -15,14 +13,14 @@ public class Grid {
     public Grid(){
         this.nbVie = 10;
         this.isGameRunning = true;
+        this.nbEnemyToKillForUlt = 5;
         this.nbEnnemieAvantUlt = this.nbEnemyToKillForUlt;
 
         this.gridHeight = 11;
         this.gridWidth = 6;
         this.grid = new Area[this.gridHeight][this.gridWidth];
         initGrille();
-        List<Area> ranges;//implementer la fonction pour récuperer les areas path autour de la tour
-        //this.grid[1][4].setTower(new Tower("FUCKAYOU", 2, ranges));
+        List<Area> ranges;
     }
 
     public int getNbVie() {
@@ -47,12 +45,6 @@ public class Grid {
     }
 
     public Area getArea(int numLigne, int numCol){
-        /*
-        assert numLigne >= 0;
-        assert numLigne < 6;
-        assert numCol >= 0;
-        assert numCol < 11;
-         */
         return this.grid[numLigne][numCol];
     }
 
@@ -85,7 +77,7 @@ public class Grid {
         return this.nbEnnemieAvantUlt;
     }
     public void decreaseUlt(){
-        if(this.nbEnnemieAvantUlt >= 0){
+        if(this.nbEnnemieAvantUlt > 0){
             this.nbEnnemieAvantUlt--;
         }
     }
@@ -101,8 +93,6 @@ public class Grid {
             this.nbEnnemieAvantUlt = this.nbEnemyToKillForUlt;
         }
     }
-
-    //fonction quon appelera dans le main
 
     //tue les enemy mort et ajouter les point pour lutli a appeler a chaque tour
     public void delDeadEnemy(){
@@ -145,7 +135,6 @@ public class Grid {
                             a.getEnemy().hasMoved();
                             prochaineArea.setEnemy(a.getEnemy());
                             a.delEnemy();
-
                         }
                     }
                 }
@@ -178,9 +167,6 @@ public class Grid {
         return this.isGameRunning;
     }
 
-    //fonction pour le debug etc
-
-    //hardcode le chemin dans chaque case
     public void hardCodePathNext(){
         startOfMaze().setNext(getArea(1,2));
         getArea(1,2).setNext(getArea(2,2));

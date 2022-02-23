@@ -8,16 +8,16 @@ import android.util.FloatMath;
 
 public class ShakeDetector implements SensorEventListener {
 
-    private static final float SHAKE_THRESHOLD_GRAVITY = 2.7F;
-    private static final int SHAKE_SLOP_TIME_MS = 500;
-    private static final int SHAKE_COUNT_RESET_TIME_MS = 3000;
+    private static final float FORCE_AGITATION = 1.7F;
+    private static final int TEMP_ENTRE_SECOUSSE = 500;
+    private static final int RESET_NB_SECOUSSE_TEMPS = 3000;
 
-    private OnShakeListener mListener;
-    private long mShakeTimestamp;
-    private int mShakeCount;
+    private OnShakeListener shakeListener;
+    private long shakeTimeStamp;
+    private int nbSecousse;
 
     public void setOnShakeListener(OnShakeListener listener) {
-        this.mListener = listener;
+        this.shakeListener = listener;
     }
 
     public interface OnShakeListener {
@@ -32,32 +32,29 @@ public class ShakeDetector implements SensorEventListener {
     @Override
     public void onSensorChanged(SensorEvent event) {
 
-        if (mListener != null) {
+        if (shakeListener != null) {
             float x = event.values[0];
             float y = event.values[1];
             float z = event.values[2];
+            float gravity_x = x / SensorManager.GRAVITY_EARTH;
+            float gravity_y = y / SensorManager.GRAVITY_EARTH;
+            float gravity_z = z / SensorManager.GRAVITY_EARTH;
+            float gravityForce = (float)Math.sqrt(gravity_x * gravity_x + gravity_y * gravity_y + gravity_z * gravity_z);
 
-            float gX = x / SensorManager.GRAVITY_EARTH;
-            float gY = y / SensorManager.GRAVITY_EARTH;
-            float gZ = z / SensorManager.GRAVITY_EARTH;
-
-            float gForce = (float)Math.sqrt(gX * gX + gY * gY + gZ * gZ);
-
-            if (gForce > SHAKE_THRESHOLD_GRAVITY) {
+            if (gravityForce > FORCE_AGITATION) {
                 final long now = System.currentTimeMillis();
 
-                if (mShakeTimestamp + SHAKE_SLOP_TIME_MS > now) {
+                // ignore les évènements de secousse trop proche entre eux
+                if (shakeTimeStamp + TEMP_ENTRE_SECOUSSE > now) {
                     return;
                 }
-
-                if (mShakeTimestamp + SHAKE_COUNT_RESET_TIME_MS < now) {
-                    mShakeCount = 0;
+                // reset nbSecousse après 3s sans secousse
+                if (shakeTimeStamp + RESET_NB_SECOUSSE_TEMPS < now) {
+                    nbSecousse = 0;
                 }
-
-                mShakeTimestamp = now;
-                mShakeCount++;
-
-                mListener.onShake(mShakeCount);
+                shakeTimeStamp = now;
+                nbSecousse++;
+                shakeListener.onShake(nbSecousse);
             }
         }
     }
