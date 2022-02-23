@@ -44,12 +44,13 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
 
             //fait avancer le jeu
             oui.checkEnemyFin();
-            adapter.displayGrid(oui);
+            updateGameVariable();
             list.invalidateViews();
             oui.spawnEnemy(2, EnemyType.NINJA);
             oui.enemyMovement();
             oui.ennemiesTakeDamage();
             oui.delDeadEnemy();
+            adapter.displayGrid(oui);
 
 
             nbSecs++;
@@ -83,7 +84,6 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
         list = (GridView) findViewById(R.id.gridViewFront);
         list.setAdapter(adapter);
 
-
      /*   //lance le debut de la partie
         button3 = (ImageView) findViewById(R.id.tower1) ;
         tower1.setTag(IMAGEVIEW_TAG);
@@ -104,7 +104,11 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
         tower5 = (ImageView) findViewById(R.id.tower5) ;
         tower5.setTag(IMAGEVIEW_TAG4);
         tower5.setOnLongClickListener(this);
-        handler.post(update);*/
+
+
+      */
+
+        handler.post(update);
     }
 
     public void updateGameVariable(){
