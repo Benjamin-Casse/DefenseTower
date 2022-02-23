@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.DragEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -34,6 +35,19 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
     Handler handler = new Handler();
     GridView list;
     ArrayList<String> data = new ArrayList<String>();
+
+
+    private static final Object IMAGEVIEW_TAG = "Tower 1" ;
+    private static final Object IMAGEVIEW_TAG1 = "Tower 2" ;
+    private static final Object IMAGEVIEW_TAG2 = "Tower 3" ;
+    private static final Object IMAGEVIEW_TAG3 = "Tower 4" ;
+    private static final Object IMAGEVIEW_TAG4 = "Tower 5" ;
+    //REPASSER EN IMAGE VIEW AU PIRE
+    Button tower1;
+    Button tower2;
+    Button tower3;
+    Button tower4;
+    Button tower5;
 
     int nbSecs = 0;
 
@@ -84,29 +98,29 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
         list = (GridView) findViewById(R.id.gridViewFront);
         list.setAdapter(adapter);
 
-     /*   //lance le debut de la partie
-        button3 = (ImageView) findViewById(R.id.tower1) ;
+
+        tower1 = (Button) findViewById(R.id.tower1) ;
         tower1.setTag(IMAGEVIEW_TAG);
         tower1.setOnLongClickListener(this);
 
-        tower2 = (ImageView) findViewById(R.id.tower2) ;
+        tower2 = (Button) findViewById(R.id.tower2) ;
         tower2.setTag(IMAGEVIEW_TAG1);
         tower2.setOnLongClickListener(this);
 
-        tower3 = (ImageView) findViewById(R.id.tower3) ;
+        tower3 = (Button) findViewById(R.id.tower3) ;
         tower3.setTag(IMAGEVIEW_TAG2);
         tower3.setOnLongClickListener(this);
 
-        tower4 = (ImageView) findViewById(R.id.tower4) ;
+        tower4 = (Button) findViewById(R.id.tower4) ;
         tower4.setTag(IMAGEVIEW_TAG3);
         tower4.setOnLongClickListener(this);
 
-        tower5 = (ImageView) findViewById(R.id.tower5) ;
+        tower5 = (Button) findViewById(R.id.tower5) ;
         tower5.setTag(IMAGEVIEW_TAG4);
         tower5.setOnLongClickListener(this);
 
+        findViewById(R.id.gridViewFront).setOnDragListener(this);
 
-      */
 
         handler.post(update);
     }
@@ -188,7 +202,7 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
 
             case DragEvent.ACTION_DRAG_ENTERED:
                 // Applies a GRAY or any color tint to the View. Return true; the return value is ignored.
-                v.getBackground().setColorFilter(Color.GRAY, PorterDuff.Mode.SRC_IN);
+                // v.getBackground().setColorFilter(Color.GRAY, PorterDuff.Mode.SRC_IN);
                 // Invalidate the view to force a redraw in the new tint
                 v.invalidate();
                 return true;
@@ -214,7 +228,7 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
                 // Displays a message containing the dragged data.
                 Toast.makeText(this, "Dragged data is " + dragData, Toast.LENGTH_SHORT).show();
                 // Turns off any color tints
-                v.getBackground().clearColorFilter();
+                //v.getBackground().clearColorFilter();
                 // Invalidates the view to force a redraw
                 v.invalidate();
 
@@ -222,7 +236,7 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
                 ViewGroup owner = (ViewGroup) vw.getParent();
                 owner.removeView(vw); //remove the dragged view
                 //caste the view into LinearLayout as our drag acceptable layout is LinearLayout
-                LinearLayout container = (LinearLayout) v;
+                GridView container = (GridView) v;
                 container.addView(vw);//Add the dragged view
                 vw.setVisibility(View.VISIBLE);//finally set Visibility to VISIBLE
                 // Returns true. DragEvent.getResult() will return true.
