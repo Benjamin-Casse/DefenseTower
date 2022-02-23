@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,8 +55,21 @@ public class GridViewCustomAdapter extends BaseAdapter {
         v = inflater.inflate(R.layout.item, null);
         Button tv = (Button) v.findViewById(R.id.button);
 
-        tv.setText(items.get(position));
-        //tv.setBackground();
+        //tv.setText(items.get(position));
+        switch(items.get(position)){
+            case "T1":
+                tv.setBackgroundTintList(ColorStateList.valueOf(Color.BLACK));
+                break;
+            case "T":
+                tv.setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
+                break;
+            case "E":
+                tv.setBackgroundTintList(ColorStateList.valueOf(Color.RED));
+                break;
+            default:
+                tv.setBackgroundTintList(ColorStateList.valueOf(Color.GREEN));
+                break;
+        }
 
         return v;
     }
@@ -74,7 +89,7 @@ public class GridViewCustomAdapter extends BaseAdapter {
                         items.add("E");
                     }
                     else
-                        items.add(" ");
+                        items.add("P");
                 }
                 if(grid.getGrid()[i][j].getAreaType() == AreaType.NULL)
                     items.add(" ");
