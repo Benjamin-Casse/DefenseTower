@@ -60,6 +60,12 @@ public class GridViewCustomAdapter extends BaseAdapter {
             case "T1":
                 tv.setBackgroundTintList(ColorStateList.valueOf(Color.BLACK));
                 break;
+            case "T2":
+                tv.setBackgroundTintList(ColorStateList.valueOf(Color.BLACK));
+                break;
+            case "T3":
+                tv.setBackgroundTintList(ColorStateList.valueOf(Color.BLACK));
+                break;
             case "T":
                 tv.setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
                 break;

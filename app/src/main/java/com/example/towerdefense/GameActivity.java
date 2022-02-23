@@ -23,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class GameActivity extends AppCompatActivity implements  View.OnDragListener, View.OnLongClickListener {
 
@@ -239,8 +240,23 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
                 owner.removeView(vw); //remove the dragged view
                 //caste the view into LinearLayout as our drag acceptable layout is LinearLayout
                 //GridView container = (GridView) v;
-                oui.getArea(0,1).setTower(new Tower("T1", 3));
-                adapter.items.set(1,oui.getArea(0,1).getTower().getName());
+                String tower1Drop = item.getText().toString();
+                Log.d("CONTEXTETE", tower1Drop);
+                //Tower 1
+
+                if (tower1Drop.equals("Tower 1")){
+                    ArrayList<Area> t1area = new ArrayList<>();
+                    t1area.add(oui.getArea(0,2));
+                    t1area.add(oui.getArea(1,2));
+                    oui.getArea(0,1).setTower(new Tower("T1", 3,t1area));
+                    Log.d("CONTEXTETE", String.valueOf(oui.getArea(0,1).getTower()));
+                    adapter.items.set(1,oui.getArea(0,1).getTower().getName());
+                }
+
+                //Tower 2
+
+
+                //Tower 3
 
                 adapter.notifyDataSetChanged();
                 //int position = list.getPositionForView((View) v.getParent());
@@ -265,7 +281,7 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
                     Toast.makeText(this, "The drop didn't work.", Toast.LENGTH_SHORT).show();
                 // returns true; the value is ignored.
                 return true;
-            // An unknown action type was received.
+
             default:
                 Log.e("DragDrop Example", "Unknown action type received by OnDragListener.");
                 break;
