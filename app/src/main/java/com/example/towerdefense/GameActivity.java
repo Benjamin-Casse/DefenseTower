@@ -241,9 +241,11 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
                 //caste the view into LinearLayout as our drag acceptable layout is LinearLayout
                 //GridView container = (GridView) v;
                 String tower1Drop = item.getText().toString();
+                String tower2Drop = item.getText().toString();
+                String tower3Drop = item.getText().toString();
                 Log.d("CONTEXTETE", tower1Drop);
-                //Tower 1
 
+                //Tower 1
                 if (tower1Drop.equals("Tower 1")){
                     Tower t1 = new Tower("T1", 3);
                     ArrayList<Area> t1area = new ArrayList<>();
@@ -255,7 +257,31 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
                     adapter.items.set(1,oui.getArea(0,1).getTower().getName());
                 }
 
-                //Tower 2
+                //Tower 2 (ligne 5 colonne 6)
+                if (tower2Drop.equals("Tower 2")){
+                    Tower t2 = new Tower("T2", 3);
+                    ArrayList<Area> t2area = new ArrayList<>();
+                    t2area.add(oui.getArea(3,4));
+                    t2area.add(oui.getArea(4,4));
+                    t2area.add(oui.getArea(5,4));
+                    t2.setTowerRange(t2area);
+                    oui.getArea(4,5).setTower(t2);
+                    Log.d("CONTEXTETE", String.valueOf(oui.getArea(4,5).getTower()));
+                    adapter.items.set(29,oui.getArea(4,5).getTower().getName());
+                }
+
+                //Tower 3 (ligne 8 colonne 0)
+                if (tower3Drop.equals("Tower 3")){
+                    Tower t3 = new Tower("T3", 3);
+                    ArrayList<Area> t3area = new ArrayList<>();
+                    t3area.add(oui.getArea(7,1));
+                    t3area.add(oui.getArea(8,1));
+                    t3area.add(oui.getArea(9,1));
+                    t3.setTowerRange(t3area);
+                    oui.getArea(8,0).setTower(t3);
+                    Log.d("CONTEXTETE", String.valueOf(oui.getArea(8,0).getTower()));
+                    adapter.items.set(48,oui.getArea(8,0).getTower().getName());
+                }
 
 
                 //Tower 3

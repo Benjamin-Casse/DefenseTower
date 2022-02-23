@@ -57,7 +57,7 @@ public class GridViewCustomAdapter extends BaseAdapter {
 
         //tv.setText(items.get(position));
         switch(items.get(position)){
-            case "T1":
+            case "To":
                 tv.setBackgroundTintList(ColorStateList.valueOf(Color.BLACK));
                 tv.setText(items.get(position));
                 break;
