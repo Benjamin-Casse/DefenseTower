@@ -50,13 +50,28 @@ public class GridViewCustomAdapter extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
 
         View v = null;
-
         v = inflater.inflate(R.layout.item, null);
-
         Button tv = (Button) v.findViewById(R.id.button);
         tv.setText(items.get(position));
 
         return v;
     }
-
+    public void displayGrid(Grid grid){
+        items.clear();
+        for (int i = 0; i < 11; i++) {
+            for(int j=0;j<6;j++){
+                if(grid.getGrid()[i][j].getAreaType() == AreaType.TOWER)
+                    items.add("T");
+                if(grid.getGrid()[i][j].getAreaType() == AreaType.PATH){
+                    if (grid.getGrid()[i][j].getEnemy() != null){
+                        items.add("E");
+                    }
+                    else
+                        items.add(" ");
+                }
+                if(grid.getGrid()[i][j].getAreaType() == AreaType.NULL)
+                    items.add(" ");
+            }
+        }
+    }
 }
