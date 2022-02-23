@@ -22,7 +22,7 @@ public class MainActivity extends Activity {
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
     private Sensor mLightSensor;
-    private SensorEventListener  mLuminosityDetector;
+    private LuminosityDetector mLuminosityDetector;
     private ShakeDetector mShakeDetector;
     private float maxValue;
     private View root;
@@ -72,21 +72,14 @@ public class MainActivity extends Activity {
         maxValue = mLightSensor.getMaximumRange();
 
         //Event Listener sur la luminosité
-        mLuminosityDetector = new SensorEventListener() {
-            @Override
-            public void onSensorChanged(SensorEvent sensorEvent) {
-                float value = sensorEvent.values[0];
-                final TextView textViewToChange = (TextView) findViewById(R.id.root);
-                textViewToChange.setText(String.valueOf(value));
-                //appeler fonction pour mettre chat ninja invisible
-                //setInvisible(Ennemy chat);
-            }
+        mLuminosityDetector = new LuminosityDetector();
 
+        mLuminosityDetector.setOnLuminosityListener(new LuminosityDetector.OnLuminosityListener() {
             @Override
-            public void onAccuracyChanged(Sensor sensor, int i) {
-                //ignorer
+            public void onChange(int count) {
+                //mettre les ennemies invisibles
             }
-        };
+        });
     }
 
     //fonction qui va lancer l'ulti lorsque le joueur secoue x fois son mobile
