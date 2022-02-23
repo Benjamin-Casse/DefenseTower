@@ -4,12 +4,17 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+
+import androidx.annotation.RequiresApi;
 
 public class GridViewCustomAdapter extends BaseAdapter {
 
@@ -52,8 +57,18 @@ public class GridViewCustomAdapter extends BaseAdapter {
         View v = null;
         v = inflater.inflate(R.layout.item, null);
         Button tv = (Button) v.findViewById(R.id.button);
-        tv.setText(items.get(position));
-        tv.setBackground();
+        //tv.setText(items.get(position));
+        switch (items.get(position)) {
+            case "T":
+                tv.setBackgroundTintList(ColorStateList.valueOf(Color.DKGRAY));
+                break;
+            case "E":
+                tv.setBackgroundTintList(ColorStateList.valueOf(Color.RED));
+                break;
+            default:
+                tv.setBackgroundTintList(ColorStateList.valueOf(Color.GREEN));
+                break;
+        }
 
         return v;
     }

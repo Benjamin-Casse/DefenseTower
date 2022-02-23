@@ -36,7 +36,6 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
     GridView list;
     ArrayList<String> data = new ArrayList<String>();
 
-
     private static final Object IMAGEVIEW_TAG = "Tower 1" ;
     private static final Object IMAGEVIEW_TAG1 = "Tower 2" ;
     private static final Object IMAGEVIEW_TAG2 = "Tower 3" ;
