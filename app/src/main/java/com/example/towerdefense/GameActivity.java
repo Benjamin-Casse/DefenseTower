@@ -5,10 +5,14 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.ClipData;
 import android.content.ClipDescription;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -17,6 +21,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
@@ -32,6 +37,12 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
     TextView nbKillAvantUlti;
     TextView debugPrint;
     TextView textUlti;
+
+    private SensorManager mSensorManager;
+    private Sensor mAccelerometer;
+    private Sensor mLightSensor;
+    private LuminosityDetector mLuminosityDetector;
+    private ShakeDetector mShakeDetector;
 
     GridViewCustomAdapter adapter;
     Grid oui = new Grid();
@@ -92,8 +103,36 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
     };
 
     @Override
+    public void onResume() {
+        super.onResume();
+        mSensorManager.registerListener(mShakeDetector, mAccelerometer,    SensorManager.SENSOR_DELAY_UI);
+        mSensorManager.registerListener(mLuminosityDetector, mLightSensor, SensorManager.SENSOR_DELAY_FASTEST);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mSensorManager.unregisterListener(mShakeDetector);
+        mSensorManager.unregisterListener(mLuminosityDetector);
+    }
+
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+
+        mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        mLightSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+
+        if (mLightSensor == null) {
+            Toast.makeText(this, "The device has no light sensor !", Toast.LENGTH_SHORT).show();
+            finish();
+        } else if (mAccelerometer == null) {
+            Toast.makeText(this, "The device has no accelerometer sensor !", Toast.LENGTH_SHORT).show();
+            finish();
+        }
 
         setContentView(R.layout.activity_game);
 
@@ -132,6 +171,35 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
 
         findViewById(R.id.gridViewFront).setOnDragListener(this);
 
+
+        mShakeDetector = new ShakeDetector();
+        //Event Listener sur les secousses
+        mShakeDetector.setOnShakeListener(new ShakeDetector.OnShakeListener() {
+
+            @Override
+            public void onShake(int nbOfShake) {
+                if(nbOfShake >= 3) {
+                    Log.d("ULT", "Je suis rentré dans le listener shake pour lancer mon ult");
+                    oui.useUlt();
+                }
+            }
+        });
+
+        //Event Listener sur la luminosité
+        mLuminosityDetector = new LuminosityDetector();
+        ImageView imageView = (ImageView) findViewById(R.id.imageView2);
+        mLuminosityDetector.setOnLuminosityListener(new LuminosityDetector.OnLuminosityListener() {
+            @Override
+            public void onChange(int luminosityValue) {
+                if(luminosityValue < 10) {
+                    Log.d("CHANGEBCKGROUND", "Je vais changer le background");
+                    imageView.setImageResource(R.drawable.night);
+                }
+                else {
+                    imageView.setImageResource(R.drawable.fondtowerdef);
+                }
+            }
+        });
 
         handler.post(update);
     }

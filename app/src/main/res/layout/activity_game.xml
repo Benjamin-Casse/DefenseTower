@@ -12,6 +12,8 @@
         android:layout_height="987dp"
         android:src="@drawable/fondtowerdef"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintWidth_percent="0.25"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

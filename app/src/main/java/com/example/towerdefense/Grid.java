@@ -13,7 +13,7 @@ public class Grid {
     private boolean isGameRunning;
 
     public Grid(){
-        this.nbVie = 5;
+        this.nbVie = 10;
         this.isGameRunning = true;
         this.nbEnnemieAvantUlt = this.nbEnemyToKillForUlt;
 
@@ -94,7 +94,7 @@ public class Grid {
             for (int i = 0; i < this.gridHeight; i++){
                 for (Area a : this.grid[i]) {
                     if(a.hasEnemy()){
-                        a.getEnemy().takeDegat(15);
+                        a.getEnemy().takeDegat(100);
                     }
                 }
             }
