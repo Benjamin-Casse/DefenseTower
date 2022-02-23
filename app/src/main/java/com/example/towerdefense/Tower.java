@@ -5,22 +5,25 @@ import java.util.List;
 public class Tower {
     private String name;
     private int degats;
-    private List<Area> path;
-    public Tower(String name, int dps, List<Area> path)
-    {
+    private List<Area> range;
+
+    public Tower(String name, int dps) {
         this.degats = dps;
         this.name = name;
-        this.path = path;
-        for(Area a : path) {
+    }
+
+    public void setTowerRange (List<Area> range) {
+        this.range = range;
+        for(Area a : range) {
             a.setMakeDamage(true);
+            a.setDamage(this.getDamage());
         }
+    }
+    public int getDamage(){
+        return this.degats;
     }
 
     public String getName() {
         return name;
-    }
-
-    public int getDamage(){
-        return this.degats;
     }
 }

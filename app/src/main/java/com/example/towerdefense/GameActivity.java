@@ -245,18 +245,17 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
                 //Tower 1
 
                 if (tower1Drop.equals("Tower 1")){
+                    Tower t1 = new Tower("T1", 3);
                     ArrayList<Area> t1area = new ArrayList<>();
                     t1area.add(oui.getArea(0,2));
                     t1area.add(oui.getArea(1,2));
-                    oui.getArea(0,1).setTower(new Tower("T1", 3,t1area));
+                    t1.setTowerRange(t1area);
+                    oui.getArea(0,1).setTower(t1);
                     Log.d("CONTEXTETE", String.valueOf(oui.getArea(0,1).getTower()));
                     adapter.items.set(1,oui.getArea(0,1).getTower().getName());
                 }
 
-                //Tower 2
 
-
-                //Tower 3
 
                 adapter.notifyDataSetChanged();
                 //int position = list.getPositionForView((View) v.getParent());
