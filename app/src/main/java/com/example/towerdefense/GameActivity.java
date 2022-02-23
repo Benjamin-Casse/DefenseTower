@@ -121,7 +121,7 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
         tower5.setTag(IMAGEVIEW_TAG4);
         tower5.setOnLongClickListener(this);
 
-        findViewById(R.id.button).setOnDragListener(this);
+        findViewById(R.id.gridViewFront).setOnDragListener(this);
 
 
         handler.post(update);
