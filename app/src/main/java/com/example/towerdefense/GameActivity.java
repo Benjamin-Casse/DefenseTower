@@ -172,7 +172,7 @@ public class GameActivity extends AppCompatActivity implements  View.OnDragListe
         luminosityDetector.setOnLuminosityListener(new LuminosityDetector.OnLuminosityListener() {
             @Override
             public void onChange(int luminosityValue) {
-                if(luminosityValue < 10) {
+                if(luminosityValue < 20) {
                     imageView.setImageResource(R.drawable.night);
                 }
                 else {
